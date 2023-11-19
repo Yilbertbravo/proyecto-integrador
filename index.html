@@ -4,72 +4,367 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Esta pagina es una tienda de x cosa">
-    <meta name="keywords" content="tienda, proyecto, proyecto integrador, palabras claves de la pagina minimo 30">
+    <meta name="description"
+        content="Inversiones Yesbert; tienda virtual de venta de productos eléctronicos: relojes inteligentes, parlantes y más. Las mejores marcas, precios bajos y envíos gratuitos en muchos productos. ">
+    <meta name="keywords"
+        content="tienda, proyecto, proyecto integrador, inversionesyesbert, yesbert, smartwatch, parlante, reloj, reloj inteligente, tecnología, tienda virtual">
     <meta name="author" content="Yilbert Bravo">
 
 
-    <title>Mi tienda</title>
+    <title>Inversiones Yesbert-Yilbert Bravo</title>
 
-    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/icon1.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
     <header class="header">
-        <img src="./images/favicon.png" alt="logo">
-        <h1>Mi tienda</h1>
+        <div class="header__top">
+            <a href="./index.html"><img class="header__top__logo" src="./images/gallery/logo.png" alt="logo"></a>
+            <div class="header__top__title">
+                <h1>Inversiones Yesbert</h1>
+            </div>
 
-
+            <div class="header__top__car-shop">
+                <img class="header__car-shop__image" src="./images/icon.png" alt="car-shop">
+                <p class="header__car-shop__counter">2</p>
+            </div>
+        </div>
         <nav class="navbar">
-            <ul>
-                <li><a href="./index.html">Home</a></li>
+            <ul class="navbar__menu">
+                <li><a class="navbar__item navbar_item--active" href="./index.html">Home</a></li>
+                <li><a class="navbar__item" href="./nosotros.html">Nosotros</a></li>
+                <li><a class="navbar__item" href="./contact.html">Contacto</a></li>
             </ul>
+            <input class="header__search" type="search" name="search-primary" id="search-primary"
+                placeholder="Buscar producto">
+            <a class="header__search__icon" href="#"><img src="./images/icon-search.png" alt="lupa"></a>
         </nav>
     </header>
 
     <main class="main">
-        <section>
-            <div>
-                <div>
-                    <h4>Primer slide</h4>
-                    <img src="./images/gallery/img04.jpg" alt="">
+        <section class="section section--slider">
+            <div class="slider">
+                <div class="slider__five">
+                    <video src="./video/video03.mp4" autoplay loop></video>
                 </div>
-                <div>
-                    <h4>Segundo slide</h4>
-                    <img src="./images/gallery/img04.jpg" alt="">
+                <div class="slider__one">
+                    <h4 class="slider__title"></h4>
+                    <a href=""><img class="slider__image" src="./images/gallery/echo-dot/img01.jpg" alt="Producto"></a>
                 </div>
-                <div>
-                    <h4>Tercer slide</h4>
-                    <img src="./images/gallery/img04.jpg" alt="">
+                <div class="slider__two">
+                    <h4 class="slider__title"></h4>
+                    <a href=""><img class="slider__image" src="./images/gallery/reloj-watch8/img01.jpg"
+                            alt="Producto"></a>
+                </div>
+                <div class="slider__three">
+                    <h4 class="slider__title"></h4>
+                    <a href=""><img class="slider__image" src="./images/gallery/reloj-chico/img01.jpg"
+                            alt="Producto"></a>
+                </div>
+                <div class="slider__four">
+                    <h4 class="slider__title"></h4>
+                    <a href=""><img class="slider__image" src="./images/gallery/repetidor-wifi/img01.jpg"
+                            alt="Producto"></a>
                 </div>
             </div>
         </section>
 
-        <section>
-            <h3>Galeria de productos</h3>
-            <figure>
-                <img src="./images/gallery/img01.jpg" alt="Descripcion">
-                <h4>Nombre de el primer producto</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                <div>
-                    <button>Agregar</button>
-                    <span>0</span>
-                    <button>Quitar</button>
+        <section class="section">
+            <h3 class="section__products__title">Productos</h3>
+            <div>formulario de busqueda Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Quibusdam maiores hic incidunt blanditiis quaerat in, rerum deserunt nihil. Velit
+                labore fugiat odit iste dolorum ab quod alias maxime recusandae porro!</div>
 
-                </div>
-            </figure>
-            <figure>
-                <img src="./images/gallery/img02.jpg" alt="Descripcion">
-                <h4>Nombre de el primer producto</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                <div>
-                    <button>Agregar</button>
-                    <span>0</span>
-                    <button>Quitar</button>
+            <section class="section--products">
+                <figure class="card card--products">
+                    <h4 class="card__title">Mini Ups</h4>
 
-                </div>
-            </figure>
+                    <img class="card__image" src="./images/gallery/mini-ups/img04.jpg" alt="Mini Ups portatil">
+                    <p class="card__text__short">
+                        DC Jack de entrada (conector): 5,5*2,1mm
+                        Puede proporcionar horas de funcionamiento durante la falla eléctrica. Está
+                        diseñado para proporcionar respaldo de energía de emergencia a todo tipo de equipos de
+                        alimentación como enrutadores, módems,decodificador, sistemas de teléfono, sistema
+                        de vigilancia, sistemas de alarma, sistemas de comunicación personal, radios, cámaras
+                        digitales, dispositivos Bluetooth, tarjetas inteligentes y muchos otros equipos de
+                        telecomunicación clave.
+                        Salida DC Jack (conector): 5,5*2,5mm
+                        Accesorios: Cable de conector X 2;Cable USB-DC X 1
+
+                    </p>
+                    <button id="view__full">Ver más...</button>
+
+                    <span class="card__price">5500,22</span>
+
+                    <div>
+
+                        <button class="button button--sm button--remove">Quitar</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">Agregar</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--products">
+                    <h4 class="card__title">Mini Ups</h4>
+
+                    <img class="card__image" src="./images/gallery/mini-ups/img04.jpg" alt="Mini Ups portatil">
+                    <p class="card__text__short">
+                        DC Jack de entrada (conector): 5,5*2,1mm
+                        Puede proporcionar horas de funcionamiento durante la falla eléctrica. Está
+                        diseñado para proporcionar respaldo de energía de emergencia a todo tipo de equipos de
+                        alimentación como enrutadores, módems,decodificador, sistemas de teléfono, sistema
+                        de vigilancia, sistemas de alarma, sistemas de comunicación personal, radios, cámaras
+                        digitales, dispositivos Bluetooth, tarjetas inteligentes y muchos otros equipos de
+                        telecomunicación clave.
+                        Salida DC Jack (conector): 5,5*2,5mm
+                        Accesorios: Cable de conector X 2;Cable USB-DC X 1
+
+                    </p>
+                    <button id="view__full">Ver más...</button>
+
+                    <span class="card__price">5500,22</span>
+
+                    <div>
+
+                        <button class="button button--sm button--remove">Quitar</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">Agregar</button>
+                    </div>
+                </figure>
+                <figure class="card card--products">
+                    <h4 class="card__title">Mini Ups</h4>
+
+                    <img class="card__image" src="./images/gallery/mini-ups/img04.jpg" alt="Mini Ups portatil">
+                    <p class="card__text__short">
+                        DC Jack de entrada (conector): 5,5*2,1mm
+                        Puede proporcionar horas de funcionamiento durante la falla eléctrica. Está
+                        diseñado para proporcionar respaldo de energía de emergencia a todo tipo de equipos de
+                        alimentación como enrutadores, módems,decodificador, sistemas de teléfono, sistema
+                        de vigilancia, sistemas de alarma, sistemas de comunicación personal, radios, cámaras
+                        digitales, dispositivos Bluetooth, tarjetas inteligentes y muchos otros equipos de
+                        telecomunicación clave.
+                        Salida DC Jack (conector): 5,5*2,5mm
+                        Accesorios: Cable de conector X 2;Cable USB-DC X 1
+
+                    </p>
+                    <button id="view__full">Ver más...</button>
+
+                    <span class="card__price">5500,22</span>
+
+                    <div>
+
+                        <button class="button button--sm button--remove">Quitar</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">Agregar</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--products">
+                    <h4 class="card__title">Mini Ups</h4>
+
+                    <img class="card__image" src="./images/gallery/mini-ups/img04.jpg" alt="Mini Ups portatil">
+                    <p class="card__text__short">
+                        DC Jack de entrada (conector): 5,5*2,1mm
+                        Puede proporcionar horas de funcionamiento durante la falla eléctrica. Está
+                        diseñado para proporcionar respaldo de energía de emergencia a todo tipo de equipos de
+                        alimentación como enrutadores, módems,decodificador, sistemas de teléfono, sistema
+                        de vigilancia, sistemas de alarma, sistemas de comunicación personal, radios, cámaras
+                        digitales, dispositivos Bluetooth, tarjetas inteligentes y muchos otros equipos de
+                        telecomunicación clave.
+                        Salida DC Jack (conector): 5,5*2,5mm
+                        Accesorios: Cable de conector X 2;Cable USB-DC X 1
+
+                    </p>
+                    <button id="view__full">Ver más...</button>
+
+                    <span class="card__price">5500,22</span>
+
+                    <div>
+
+                        <button class="button button--sm button--remove">Quitar</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">Agregar</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--products">
+                    <h4 class="card__title">Mini Ups</h4>
+
+                    <img class="card__image" src="./images/gallery/mini-ups/img04.jpg" alt="Mini Ups portatil">
+                    <p class="card__text__short">
+                        DC Jack de entrada (conector): 5,5*2,1mm
+                        Puede proporcionar horas de funcionamiento durante la falla eléctrica. Está
+                        diseñado para proporcionar respaldo de energía de emergencia a todo tipo de equipos de
+                        alimentación como enrutadores, módems,decodificador, sistemas de teléfono, sistema
+                        de vigilancia, sistemas de alarma, sistemas de comunicación personal, radios, cámaras
+                        digitales, dispositivos Bluetooth, tarjetas inteligentes y muchos otros equipos de
+                        telecomunicación clave.
+                        Salida DC Jack (conector): 5,5*2,5mm
+                        Accesorios: Cable de conector X 2;Cable USB-DC X 1
+
+                    </p>
+                    <button id="view__full">Ver más...</button>
+
+                    <span class="card__price">5500,22</span>
+
+                    <div>
+
+                        <button class="button button--sm button--remove">Quitar</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">Agregar</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--products">
+                    <h4 class="card__title">Mini Ups</h4>
+
+                    <img class="card__image" src="./images/gallery/mini-ups/img04.jpg" alt="Mini Ups portatil">
+                    <p class="card__text__short">
+                        DC Jack de entrada (conector): 5,5*2,1mm
+                        Puede proporcionar horas de funcionamiento durante la falla eléctrica. Está
+                        diseñado para proporcionar respaldo de energía de emergencia a todo tipo de equipos de
+                        alimentación como enrutadores, módems,decodificador, sistemas de teléfono, sistema
+                        de vigilancia, sistemas de alarma, sistemas de comunicación personal, radios, cámaras
+                        digitales, dispositivos Bluetooth, tarjetas inteligentes y muchos otros equipos de
+                        telecomunicación clave.
+                        Salida DC Jack (conector): 5,5*2,5mm
+                        Accesorios: Cable de conector X 2;Cable USB-DC X 1
+
+                    </p>
+                    <button id="view__full">Ver más...</button>
+
+                    <span class="card__price">5500,22</span>
+
+                    <div>
+
+                        <button class="button button--sm button--remove">Quitar</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">Agregar</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--products">
+                    <h4 class="card__title">Mini Ups</h4>
+
+                    <img class="card__image" src="./images/gallery/mini-ups/img04.jpg" alt="Mini Ups portatil">
+                    <p class="card__text__short">
+                        DC Jack de entrada (conector): 5,5*2,1mm
+                        Puede proporcionar horas de funcionamiento durante la falla eléctrica. Está
+                        diseñado para proporcionar respaldo de energía de emergencia a todo tipo de equipos de
+                        alimentación como enrutadores, módems,decodificador, sistemas de teléfono, sistema
+                        de vigilancia, sistemas de alarma, sistemas de comunicación personal, radios, cámaras
+                        digitales, dispositivos Bluetooth, tarjetas inteligentes y muchos otros equipos de
+                        telecomunicación clave.
+                        Salida DC Jack (conector): 5,5*2,5mm
+                        Accesorios: Cable de conector X 2;Cable USB-DC X 1
+
+                    </p>
+                    <button id="view__full">Ver más...</button>
+
+                    <span class="card__price">5500,22</span>
+
+                    <div>
+
+                        <button class="button button--sm button--remove">Quitar</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">Agregar</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--products">
+                    <h4 class="card__title">Mini Ups</h4>
+
+                    <img class="card__image" src="./images/gallery/mini-ups/img04.jpg" alt="Mini Ups portatil">
+                    <p class="card__text__short">
+                        DC Jack de entrada (conector): 5,5*2,1mm
+                        Puede proporcionar horas de funcionamiento durante la falla eléctrica. Está
+                        diseñado para proporcionar respaldo de energía de emergencia a todo tipo de equipos de
+                        alimentación como enrutadores, módems,decodificador, sistemas de teléfono, sistema
+                        de vigilancia, sistemas de alarma, sistemas de comunicación personal, radios, cámaras
+                        digitales, dispositivos Bluetooth, tarjetas inteligentes y muchos otros equipos de
+                        telecomunicación clave.
+                        Salida DC Jack (conector): 5,5*2,5mm
+                        Accesorios: Cable de conector X 2;Cable USB-DC X 1
+
+                    </p>
+                    <button id="view__full">Ver más...</button>
+
+                    <span class="card__price">5500,22</span>
+
+                    <div>
+
+                        <button class="button button--sm button--remove">Quitar</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">Agregar</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--products">
+                    <h4 class="card__title">Mini Ups</h4>
+
+                    <img class="card__image" src="./images/gallery/mini-ups/img04.jpg" alt="Mini Ups portatil">
+                    <p class="card__text__short">
+                        DC Jack de entrada (conector): 5,5*2,1mm
+                        Puede proporcionar horas de funcionamiento durante la falla eléctrica. Está
+                        diseñado para proporcionar respaldo de energía de emergencia a todo tipo de equipos de
+                        alimentación como enrutadores, módems,decodificador, sistemas de teléfono, sistema
+                        de vigilancia, sistemas de alarma, sistemas de comunicación personal, radios, cámaras
+                        digitales, dispositivos Bluetooth, tarjetas inteligentes y muchos otros equipos de
+                        telecomunicación clave.
+                        Salida DC Jack (conector): 5,5*2,5mm
+                        Accesorios: Cable de conector X 2;Cable USB-DC X 1
+
+                    </p>
+                    <button id="view__full">Ver más...</button>
+
+                    <span class="card__price">5500,22</span>
+
+                    <div>
+
+                        <button class="button button--sm button--remove">Quitar</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">Agregar</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--products">
+                    <h4 class="card__title">Mini Ups</h4>
+
+                    <img class="card__image" src="./images/gallery/mini-ups/img04.jpg" alt="Mini Ups portatil">
+                    <p class="card__text__short">
+                        DC Jack de entrada (conector): 5,5*2,1mm
+                        Puede proporcionar horas de funcionamiento durante la falla eléctrica. Está
+                        diseñado para proporcionar respaldo de energía de emergencia a todo tipo de equipos de
+                        alimentación como enrutadores, módems,decodificador, sistemas de teléfono, sistema
+                        de vigilancia, sistemas de alarma, sistemas de comunicación personal, radios, cámaras
+                        digitales, dispositivos Bluetooth, tarjetas inteligentes y muchos otros equipos de
+                        telecomunicación clave.
+                        Salida DC Jack (conector): 5,5*2,5mm
+                        Accesorios: Cable de conector X 2;Cable USB-DC X 1
+
+                    </p>
+                    <button id="view__full">Ver más...</button>
+
+                    <span class="card__price">5500,22</span>
+
+                    <div>
+
+                        <button class="button button--sm button--remove">Quitar</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">Agregar</button>
+                    </div>
+                </figure>
+
+                <a href="./product.html">
+                    <figure class="card card--products add__new-product">
+                        <h4 class="card__title">Agregar nuevo producto</h4>
+
+                        <img class="add_card__image" src="./images/gallery/agregar.png" alt="Agregar nuevo producto">
+                    </figure>
+                </a>
+
+            </section>
         </section>
     </main>
 

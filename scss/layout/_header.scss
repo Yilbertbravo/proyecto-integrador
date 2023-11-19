@@ -3,4 +3,75 @@
 
 .header {
     grid-area: header;
+    width: 100%;
+
+    &__top {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-areas: "header-logo header-title header-car-shop";
+        justify-items: center;
+        align-items: center;
+        padding: 2vw;
+
+        &__logo {
+            grid-area: header-logo;
+            height: 20vh;
+            width: auto;
+            cursor: pointer;
+        }
+
+        &__title {
+            grid-area: header-title;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 100%;
+            height: 80%;
+            border-radius: 50%/50%;
+            font-family: 'roboto', Arial, Helvetica, sans-serif;
+            background: var.$colorGradientBackground;
+
+
+            h1 {
+                color: white;
+                position: relative;
+                font-size: 3.5em;
+
+                animation: move-title 3s ease-in-out 1;
+            }
+        }
+
+        &__car-shop {
+            grid-area: header-car-shop;
+            padding: 1vw;
+            border-radius: 25%;
+
+            background: var.$colorGradientBackground;
+            display: flex;
+            flex-direction: row;
+            cursor: pointer;
+
+            .header__car-shop__image {
+                height: 2.8em;
+            }
+
+            .header__car-shop__counter {
+                color: white;
+                font-size: 1.5em;
+            }
+        }
+
+        @keyframes move-title {
+            0% {left: 100%; color: transparent;}
+
+            20% {left: 0%; font-style: normal;}
+
+            50% {transform: rotateY(360deg); font-size: 4em;}
+
+            100% {left: 0%;}
+        }
+    }
+
+
 }

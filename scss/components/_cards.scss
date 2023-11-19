@@ -1,0 +1,89 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.card {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding: 0.5vw;
+    margin: 1vw;
+    width: 18vw;
+    height: 28vw;
+
+    // background-color: lightblue;
+    border: 0.02em solid black;
+    border-radius: 4%/4%;
+
+    &__image {
+        width: 15vw;
+        height: 15vw;
+
+    }
+
+    &__title {
+        color: black;
+        text-align: center;
+        font-size: 1.5em;
+
+    }
+
+    &__price {
+        font-weight: bold;
+
+
+        &::before {
+            content: "$ ";
+        }
+
+    }
+
+    .card__text__short {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        font-size: 1em;
+    }
+
+    #view__full {
+        border: transparent;
+        font-weight: bold;
+        background-color: transparent;
+        cursor: pointer;
+        justify-self: start;
+        align-self: flex-end;
+    }
+}
+
+// .card:active{
+//     position: absolute;
+//     left: 20%;
+//     z-index: 2;
+//     width: 60%;
+//     width: 50vh;
+//     background-color: lightblue;
+//     transform: scale(2);
+// }
+
+.card:hover {
+    position: relative;
+    bottom: 0.75vh;
+    box-shadow: 2px 2px 8px 4px var.$colorLogoBlue;
+}
+
+.add__new-product {
+    color: red;
+    justify-content: space-evenly;
+
+    .add_card__image {
+        justify-self: center;
+        align-self: center;
+        width: 60%;
+    }
+}
