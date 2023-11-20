@@ -27,7 +27,7 @@
 
             <div class="header__top__car-shop">
                 <img class="header__car-shop__image" src="./images/icon.png" alt="car-shop">
-                <p class="header__car-shop__counter">2</p>
+                <p class="header__car-shop__counter" id="carritoProduct">0</p>
             </div>
         </div>
         <nav class="navbar">
@@ -36,9 +36,12 @@
                 <li><a class="navbar__item" href="./nosotros.html">Nosotros</a></li>
                 <li><a class="navbar__item" href="./contact.html">Contacto</a></li>
             </ul>
-            <input class="header__search" type="search" name="search-primary" id="search-primary"
-                placeholder="Buscar producto">
-            <a class="header__search__icon" href="#"><img src="./images/icon-search.png" alt="lupa"></a>
+            <form class="header__form" method="get" action="https://www.google.com/search" target="_blank">
+                <input class="header__form__search" type="search" name="q" placeholder="Término a buscar" required>
+            
+                <button class="header__form__icon" type="submit"><img src="./images/icon-search.png" alt="lupa"></button>
+            
+            </form>
         </nav>
     </header>
 
@@ -55,14 +58,14 @@
                         <label for="file">Click para agregar imagen del producto *</label>
                         <input type="file" id="file" name="file" accept=".jpg, .jpeg, .png" required>
 
-                        <textarea name="description" id="" cols="30" rows="10" placeholder="Descripción de el producto *"
-                            required></textarea>
+                        <textarea name="description" id="" cols="30" rows="10"
+                            placeholder="Descripción de el producto *" required></textarea>
 
                         <input type="text" placeholder="Precio del producto *" required>
 
-                        <input type="submit" value="Registrar">
+                        <input type="submit" class="button--add" value="Registrar">
 
-                        <input type="reset" value="Resetear Formulario">
+                        <input type="reset" class="button--remove" value="Resetear Formulario">
 
 
                         <p>Completar todos los campos es obligatorio</p>

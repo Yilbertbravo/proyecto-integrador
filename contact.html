@@ -27,7 +27,7 @@
 
             <div class="header__top__car-shop">
                 <img class="header__car-shop__image" src="./images/icon.png" alt="logo">
-                <p class="header__car-shop__counter">2</p>
+                <p class="header__car-shop__counter" id="carritoContact">0</p>
             </div>
         </div>
         <nav class="navbar">
@@ -36,15 +36,49 @@
                 <li><a class="navbar__item " href="./nosotros.html">Nosotros</a></li>
                 <li><a class="navbar__item navbar_item--active" href="./contact.html">Contacto</a></li>
             </ul>
-            <input class="header__search" type="search" name="search-primary" id="search-primary"
-                placeholder="Buscar producto">
-            <input type="submit" value="" name="search-primary">
-            <a class="header__search__icon" href="#"><img src="./images/icon-search.png" alt=""></a>
+            <form class="header__form" method="get" action="https://www.google.com/search" target="_blank">
+                <input class="header__form__search" type="search" name="q" placeholder="Término a buscar" required>
+            
+                <button class="header__form__icon" type="submit"><img src="./images/icon-search.png" alt="lupa"></button>
+            
+            </form>
         </nav>
     </header>
 
     <main class="main">
-       
+        <section class="section__new__product">
+            <div class="new__product">
+                <div class="new__product__title">
+                    <h1>Formulario para comunicarse con nosotros</h1>
+                </div>
+                <div class="new__product__form">
+                    <form action="#" method="post">
+                        <input type="text" placeholder="Nombre*" required autofocus>
+
+                        <input type="text" placeholder="Apellido*" required>
+
+                        <input type="email" placeholder="Email *" required>
+
+
+                        <textarea name="description" id="" cols="30" rows="10"
+                            placeholder="Descripción de su consulta *" required></textarea>
+
+                        <input type="submit" class="button--add" value="Registrar Consulta">
+
+                        <input type="reset" class="button--remove" value="Resetear Consulta">
+
+
+                        <p>Completar todos los campos es obligatorio</p>
+                </div>
+
+
+                </form>
+            </div>
+        </section>
+
+
+
+
     </main>
 
     <footer class="footer">

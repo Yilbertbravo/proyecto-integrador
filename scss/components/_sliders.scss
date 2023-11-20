@@ -4,12 +4,15 @@
 .slider {
     position: relative;
     height: 30vh;
-    width: 100vw;
-    display: flex;
+    width: 90vw;
+
+    display: grid;
+    grid-template-columns: repeat(5, 2fr);
+    gap: 1em;
     justify-content: space-around;
 
     animation-name: move-slide;
-    animation-duration: 10s;
+    animation-duration: 6s;
     animation-timing-function: ease-in;
     animation-iteration-count: 1;
 
@@ -24,6 +27,7 @@
 
         margin-left: 0.5vw;
         margin-right: 0.5vw;
+
 
     }
 
@@ -41,14 +45,15 @@
         object-fit: fill;
         object-position: center;
         border-radius: 10%;
+
     }
 
 
-    // @keyframes move-slide {
-    //     0% { left: 100%;}
+    @keyframes move-slide {
+        0% { left: 100%;}
 
-    //     100% {left: 0%;}
-    // }
+        100% {left: 0%;}
+    }
 
 
 }
