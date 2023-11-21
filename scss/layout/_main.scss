@@ -131,8 +131,25 @@
     }
 
     #maps {
-       border: none;
-       border-radius: 15%;
+        border: none;
+        border-radius: 15%;
     }
 
+
+    .name-product,
+    .description-product,
+    .price-product,
+    .name-contact,
+    .lastname-contact,
+    .email-contact,
+    .description-contact {
+        display: flex;
+        width: fit-content;
+        background: rgba(255, 0, 0, 0.5);
+
+    }
+
+        // .form-contact {
+        //     width: 60%;
+        // }
 }

@@ -38,32 +38,63 @@
             </ul>
             <form class="header__form" method="get" action="https://www.google.com/search" target="_blank">
                 <input class="header__form__search" type="search" name="q" placeholder="Término a buscar" required>
-            
-                <button class="header__form__icon" type="submit"><img src="./images/icon-search.png" alt="lupa"></button>
-            
+
+                <button class="header__form__icon" type="submit"><img src="./images/icon-search.png"
+                        alt="lupa"></button>
+
             </form>
         </nav>
     </header>
 
     <main class="main">
+        <section class="section">
+            <div class="slider">
+                <div class="slider__five">
+                    <video src="./video/video03.mp4" autoplay loop></video>
+                </div>
+                <div class="slider__one">
+                    <a href="#saleAlexa"><img class="slider__image" src="./images/gallery/alexa/img01.jpg"
+                            alt="Producto"></a>
+                </div>
+                <div class="slider__two">
+                    <a href="#saleS9"><img class="slider__image" src="./images/gallery/auricular-s9/img03.jpg"
+                            alt="Producto"></a>
+                </div>
+                <div class="slider__three">
+                    <a href="#saleCamara"><img class="slider__image" src="./images/gallery/camara/img02.jpg"
+                            alt="Producto"></a>
+                </div>
+                <div class="slider__four">
+                    <a href="#saleEcho"><img class="slider__image" src="./images/gallery/echo-dot/img03.jpg"
+                            alt="Producto"></a>
+                </div>
+            </div>
+        </section>
+
+
         <section class="section__new__product">
             <div class="new__product">
                 <div class="new__product__title">
                     <h1>Formulario para comunicarse con nosotros</h1>
                 </div>
                 <div class="new__product__form">
-                    <form action="#" method="post">
-                        <input type="text" placeholder="Nombre*" required autofocus>
+                    <form class="form-contact" action="#" method="post">
+                        <input type="text" id="id-name-contact" placeholder="Nombre*" required autofocus>
+                        <label for="id-name-contact" class="name-contact"></label>
 
-                        <input type="text" placeholder="Apellido*" required>
+                        <input type="text" id="id-lastname-contact" placeholder="Apellido*" required>
+                        <label for="id-lastname-contact" class="lastname-contact"></label>
 
-                        <input type="email" placeholder="Email *" required>
+                        <input type="email" id="id-email-contact" placeholder="Email *" required>
+                        <label for="id-email-contact" class="email-contact"></label>
 
 
                         <textarea name="description" id="" cols="30" rows="10"
                             placeholder="Descripción de su consulta *" required></textarea>
+                        <label for="id-description-contact" class="description-contact"></label>
 
-                        <input type="submit" class="button--add" value="Registrar Consulta">
+
+                        <input type="submit" class="button--add" id="validate-consult" value="Registrar Consulta">
 
                         <input type="reset" class="button--remove" value="Resetear Consulta">
 

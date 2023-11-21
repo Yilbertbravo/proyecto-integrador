@@ -336,6 +336,17 @@ body {
   border: none;
   border-radius: 15%;
 }
+.main .name-product,
+.main .description-product,
+.main .price-product,
+.main .name-contact,
+.main .lastname-contact,
+.main .email-contact,
+.main .description-contact {
+  display: flex;
+  width: fit-content;
+  background: rgba(255, 0, 0, 0.5);
+}
 
 .navbar {
   grid-area: navbar;

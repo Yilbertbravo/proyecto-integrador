@@ -181,7 +181,7 @@ function sumar(idContador) {
     valorAnterior.innerHTML = valorNuevo;
     let valorNuevoCarrito = Number(valorAnteriorCarrito.innerHTML) + 1;
     valorAnteriorCarrito.innerHTML = valorNuevoCarrito;
-    
+
     return (valorNuevoCarrito);
 
 }
@@ -201,3 +201,108 @@ function restar(idContador) {
 
 
 //*
+//********Validaciones Ingreso Producto*********** */
+
+const inputName = document.getElementById("id-name-product");
+const inputDescriptionProduct = document.getElementById("id-description-product");
+const inputPriceProduct = document.getElementById("id-price-product");
+
+const buttonValidate = document.getElementById("btn-validate-product");
+
+
+const regexName = /^[a-zA-Z\s]{3,}$/;
+const regexDescriptionProduct = /[a-zA-Z\s]{30,}$/;
+const regexPriceProduct = /(?:- ?)?\d+(?:,\d+)?/;
+
+
+function validateName() {
+    if (!regexName.test(inputName.value)) {
+        inputName.nextElementSibling.innerText = "El nombre ingresado es invalido";
+    } else {
+        inputName.nextElementSibling.innerText = "";
+    }
+}
+
+function validateDescriptionProduct() {
+    if (!regexDescriptionProduct.test(inputDescriptionProduct.value)) {
+        inputDescriptionProduct.nextElementSibling.innerText = "Debe ingresar alguna descripción, mayor de 30 caracteres";
+    } else {
+        inputDescriptionProduct.nextElementSibling.innerText = "";
+    }
+}
+
+function validatePriceProduct() {
+    if (!regexPriceProduct.test(inputPriceProduct.value)) {
+        inputPriceProduct.nextElementSibling.innerText = "Debe ingresar un precio valido";
+    } else {
+        inputPriceProduct.nextElementSibling.innerText = "";
+    }
+}
+
+function validate() {
+    validateName();
+    validateDescriptionProduct();
+    validatePriceProduct();
+}
+
+buttonValidate.onclick = validate;
+
+
+//********Validaciones Contacto*********** */
+const inputNameContact = document.getElementById("id-name-contact");
+const inputLastNameContact = document.getElementById("id-lastname-contact");
+const inputEmailContact = document.getElementById("id-email-contact");
+const inputDescriptionContact = document.getElementById("id-description-product");
+
+const buttonValidateConsult = document.getElementById("validate-consult");
+
+const regexNameContact = /^[a-zA-Z\s]{3,}$/;
+const regexEmailContact = /^[a-z0-9._]+@[a-z0-9-]+.(com$|com.[a-z0-9]{2}$)/;
+const regexDescriptionContact = /[a-zA-Z\s]{30,}$/;
+
+
+
+function validateNameConsult() {
+    if (!regexNameContact.test(inputNameContact.value)) {
+        inputNameContact.nextElementSibling.innerText = "El nombre es invalido";
+    } else {
+        inputNameContact.nextElementSibling.innerText = " ";
+    }
+}
+
+function validateLastName() {
+    if (!regexNameContact.test(inputLastNameContact.value)) {
+        inputLastNameContact.nextElementSibling.innerText = "El apellido es invalido";
+    } else {
+        inputLastNameContact.nextElementSibling.innerText = " ";
+    }
+}
+
+function validateEmailContact() {
+    if (!regexEmailContact.test(inputEmailContact.value)) {
+        inputEmailContact.nextElementSibling.innerText = "El email ingresado es invalido";
+
+
+    } else {
+        inputDescriptionContact.nextElementSibling.innerText = " ";
+    }
+}
+
+function validateDescriptionContact() {
+    if (!regexDescriptionContact.test(inputDescriptionContact.value)) {
+        inputDescriptionContact.nextElementSibling.innerText = "Ingrese una descripción";
+    } else {
+        inputDescriptionContact.nextElementSibling.innerText = " ";
+    }
+}
+
+
+function validateContact() {
+    console.log("hola")
+    // validateNameConsult();
+    // // validateLastName();
+    // // validateEmailContact();
+    // // validateDescriptionContact();
+}
+
+buttonValidateConsult.onclick = validateContact;
