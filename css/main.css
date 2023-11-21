@@ -348,6 +348,12 @@ body {
   background: rgba(255, 0, 0, 0.5);
 }
 
+.form-contact {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
 .navbar {
   grid-area: navbar;
   width: 92%;

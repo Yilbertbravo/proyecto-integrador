@@ -245,22 +245,18 @@ function validate() {
     validatePriceProduct();
 }
 
-buttonValidate.onclick = validate;
 
 
 //********Validaciones Contacto*********** */
 const inputNameContact = document.getElementById("id-name-contact");
 const inputLastNameContact = document.getElementById("id-lastname-contact");
 const inputEmailContact = document.getElementById("id-email-contact");
-const inputDescriptionContact = document.getElementById("id-description-product");
-
+const inputDescriptionContact = document.getElementById("id-description-contact");
 const buttonValidateConsult = document.getElementById("validate-consult");
 
 const regexNameContact = /^[a-zA-Z\s]{3,}$/;
 const regexEmailContact = /^[a-z0-9._]+@[a-z0-9-]+.(com$|com.[a-z0-9]{2}$)/;
 const regexDescriptionContact = /[a-zA-Z\s]{30,}$/;
-
-
 
 function validateNameConsult() {
     if (!regexNameContact.test(inputNameContact.value)) {
@@ -284,7 +280,7 @@ function validateEmailContact() {
 
 
     } else {
-        inputDescriptionContact.nextElementSibling.innerText = " ";
+        inputEmailContact.nextElementSibling.innerText = " ";
     }
 }
 
@@ -298,11 +294,9 @@ function validateDescriptionContact() {
 
 
 function validateContact() {
-    console.log("hola")
-    // validateNameConsult();
-    // // validateLastName();
-    // // validateEmailContact();
-    // // validateDescriptionContact();
+    validateNameConsult();
+    validateLastName();
+    validateEmailContact();
+    validateDescriptionContact();
 }
 
-buttonValidateConsult.onclick = validateContact;

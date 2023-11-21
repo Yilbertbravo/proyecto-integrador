@@ -19,11 +19,6 @@
             grid-auto-rows: minmax(28vw, auto);
             justify-items: center;
 
-            // display: flex;
-            // flex-direction: row;
-            // flex-wrap: wrap;
-            // justify-content: center;
-            // flex-wrap: wrap;
 
             gap: 1vw;
             overflow: visible;
@@ -149,7 +144,11 @@
 
     }
 
-        // .form-contact {
-        //     width: 60%;
-        // }
+   
 }
+
+ .form-contact {
+     display: flex;
+     flex-direction: column;
+     width: 60%;
+ }
