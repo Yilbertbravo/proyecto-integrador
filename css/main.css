@@ -259,6 +259,9 @@ body {
   font-family: "roboto", Arial, Helvetica, sans-serif;
   background: linear-gradient(45deg, #E59132 20%, #2D549D 80%);
 }
+.main .section .ocultar__p {
+  display: none;
+}
 .main .section__new__product {
   height: 70%;
   width: auto;
