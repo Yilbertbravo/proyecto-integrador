@@ -1,11 +1,11 @@
 //****Boton Ver mas (ver menos)**** */
 //**Intente no repetir codigo y hacerlo con parametros en esta parte, pero no pude hacerlo. */
 
+
 const paragraphCard = document.querySelector(".card__text__short1");
 const buttonShow = document.querySelector(".btn--ver--mas1");
 
 function show() {
-
     paragraphCard.className = "card__text__short1";
     buttonShow.innerHTML = "Ver más";
     buttonShow.onclick = hide;
@@ -16,6 +16,11 @@ function hide() {
     buttonShow.innerHTML = "Ver menos";
     buttonShow.onclick = show;
 }
+
+
+
+
+
 
 const paragraphCard2 = document.querySelector(".card__text__short2");
 const buttonShow2 = document.querySelector(".btn--ver--mas2");
