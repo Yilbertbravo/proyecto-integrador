@@ -231,6 +231,9 @@ inputsProduct.forEach((input) => {
     input.addEventListener('blur', validarFormularioProducto);
 })
 
+// formularioDeProducto.addEventListener('submit', (e) => {
+//     e.preventDefault();
+// });
 
 function validateName() {
     if (!regexName.test(inputName.value)) {
@@ -301,6 +304,11 @@ inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario);
     input.addEventListener('blur', validarFormulario);
 })
+
+// formularioDeContacto.addEventListener('submit', (e) => {
+//     e.preventDefault();
+// });
+
 
 
 function validateNameConsult() {
