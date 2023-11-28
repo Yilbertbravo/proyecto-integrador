@@ -231,9 +231,9 @@ inputsProduct.forEach((input) => {
     input.addEventListener('blur', validarFormularioProducto);
 
 })
-formularioDeProducto.addEventListener('submit', (e) => {
-    e.preventDefault()
-});
+// formularioDeProducto.addEventListener ('submit', (e) => {
+//     e.preventDefault()
+// });
 
 function validateName() {
     if (!regexName.test(inputName.value)) {
