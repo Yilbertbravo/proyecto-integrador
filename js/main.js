@@ -229,11 +229,8 @@ const validarFormularioProducto = () => {
 inputsProduct.forEach((input) => {
     input.addEventListener('keyup', validarFormularioProducto);
     input.addEventListener('blur', validarFormularioProducto);
-
 })
-// formularioDeProducto.addEventListener ('submit', (e) => {
-//     e.preventDefault()
-// });
+
 
 function validateName() {
     if (!regexName.test(inputName.value)) {
@@ -290,7 +287,7 @@ const regexNameContact = /^[a-zA-Z\s]{3,}$/;
 const regexEmailContact = /^[a-z0-9._]+@[a-z0-9-]+.(com$|com.[a-z0-9]{2}$)/;
 const regexDescriptionContact = /[a-zA-Z\s]{10}$/;
 
-const formularioDeContacto= document.getElementById ('formularioContacto');
+const formularioDeContacto = document.getElementById ('formularioContacto');
 const inputs = document.querySelectorAll('#formularioContacto input')
 
 const validarFormulario = () => {
@@ -303,11 +300,8 @@ const validarFormulario = () => {
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario);
     input.addEventListener('blur', validarFormulario);
-
 })
-formularioDeContacto.addEventListener('submit', (e) => {
-    e.preventDefault()
-});
+
 
 function validateNameConsult() {
     if (!regexNameContact.test(inputNameContact.value)) {
