@@ -5,7 +5,7 @@
     grid-area: navbar;
     width: 92%;
     display: flex;
-    justify-content: space-evenly;
+            justify-content: start;
     margin-bottom: 2em;
 
     &__menu {
@@ -62,4 +62,43 @@
         background-color: transparent;
     }
 
+}
+
+@media (max-width: 990px) {
+    .navbar {
+        margin-bottom: 1em;
+
+        &__menu {
+            .navbar__item {
+                font-size: 1.2em;
+            }
+        }
+
+        .header__form {
+            &__search {
+                font-size: 1.05em;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        display: flex;
+        justify-content: start;
+        width: 100%;
+        &__menu {
+
+            .navbar__item {
+                width: 20vw;
+            }
+        }
+
+        .header__form {
+            &__search {
+                width: 20vw;
+                font-size: 1.2em;
+            }
+        }
+    }
 }

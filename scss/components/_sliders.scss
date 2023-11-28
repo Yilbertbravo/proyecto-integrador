@@ -33,7 +33,6 @@
 
     &__title {
         position: absolute;
-        color: green;
         font-size: 2rem;
         color: white;
     }
@@ -50,10 +49,53 @@
 
 
     @keyframes move-slide {
-        0% { left: 100%;}
+        0% {
+            left: 100%;
+        }
 
-        100% {left: 0%;}
+        100% {
+            left: 0%;
+        }
     }
 
 
+}
+
+@media (max-width: 990px) {
+    .slider {
+        height: 26vh;
+        width: 90%;
+        gap: 0.8em;
+
+        &__image,
+        .slider__five video {
+            height: 26vh;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .slider {
+        width: 90%;
+        height: 20vh;
+        gap: 0.5em;
+
+        &__image,
+        .slider__five video {
+            height: 20vh;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .slider {
+        width: 90%;
+        height: 17vh;
+        gap: 0.5em;
+
+        &__image,
+        .slider__five video {
+            height: 17vh;
+        }
+    }
 }

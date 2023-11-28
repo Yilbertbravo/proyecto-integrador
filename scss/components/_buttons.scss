@@ -1,62 +1,72 @@
 @use "../abstracts/variables" as var;
 @use "../abstracts/mixins" as mix;
 
-  .card__text__short1,
-  .card__text__short2,
-  .card__text__short3,
-  .card__text__short4,
-  .card__text__short5,
-  .card__text__short6,
-  .card__text__short7,
-  .card__text__short8,
-  .card__text__short9,
-  .card__text__short10 {
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      overflow: hidden;
-      font-size: 1em;
+.card__text__short1,
+.card__text__short2,
+.card__text__short3,
+.card__text__short4,
+.card__text__short5,
+.card__text__short6,
+.card__text__short7,
+.card__text__short8,
+.card__text__short9,
+.card__text__short10 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: 1em;
 
 
-  }
+}
 
-  .btn--ver--mas {
-      border: transparent;
-      font-weight: bold;
-      background-color: transparent;
-      cursor: pointer;
-      justify-self: start;
-      align-self: flex-end;
-  }
+.btn--ver--mas {
+    border: transparent;
+    font-weight: bold;
+    background-color: transparent;
+    cursor: pointer;
+    justify-self: start;
+    align-self: flex-end;
+}
 
-  .add__new-product {
-      color: red;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-evenly;
-      height: 100%;
-      width: 100%;
+.add__new-product {
+    color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
 
-      .add_card__image {
-          display: flex;
-          justify-self: end;
-          align-self: center;
-      }
-  }
+    .add_card__image {
+        display: flex;
+        justify-self: end;
+        align-self: center;
+    }
+}
 
 .button--remove,
 .button--add {
-font-size: 1em;
-margin: 0.35em;
-padding: 0.2em;
-border-radius: 0.5em;
+    font-size: 1em;
+    margin: 0.35em;
+    padding: 0.2em;
+    border-radius: 0.5em;
 }
 
-  .button--remove {
-    background-color: lightgray;
-  }
+.button--remove {
+    background-color: var.$backgroundBtn;
 
-  .button--add {
-    background-color: rgb(110, 254, 110);
-  }
+}
+
+ .button--remove:hover {
+     background-color: var.$backgroundBtnRemoveHover;
+     color: white;
+ }
+
+.button--add {
+    background-color: var.$backgroundBtn;
+}
+
+.button--add:hover{
+    background-color: var.$backgroundBtnAddHover;
+}

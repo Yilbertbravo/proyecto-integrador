@@ -11,7 +11,7 @@
     align-items: center;
     flex-wrap: wrap;
 
-    padding: 01em;
+    padding: 1em;
     margin: 1vw;
 
     border: 0.02em solid black;
@@ -50,3 +50,26 @@
     box-shadow: 2px 2px 8px 4px var.$colorLogoBlue;
 }
 
+@media (max-width: 600px) {
+    .card {
+        border-radius: 10%/10%;
+
+        &__image {
+            margin: 1vw;
+            width: 25vw;
+            height: 25vw;
+
+        }
+
+        &__title {
+            font-size: 1.2em;
+
+        }
+
+        p {
+            font-size: 0.8em;
+        }
+
+    }
+
+}

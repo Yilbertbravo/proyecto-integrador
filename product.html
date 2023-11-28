@@ -37,7 +37,7 @@
                 <li><a class="navbar__item" href="./contact.html">Contacto</a></li>
             </ul>
             <form class="header__form" method="get" action="https://www.google.com/search" target="_blank">
-                <input class="header__form__search" type="search" name="q" placeholder="Término a buscar" required>
+                <input class="header__form__search" type="search" name="q" placeholder="Buscar producto" required>
 
                 <button class="header__form__icon" type="submit"><img src="./images/icon-search.png"
                         alt="lupa"></button>
@@ -48,7 +48,7 @@
 
     <main class="main">
         <section class="section">
-                <h2 class="ocultar__p">slider</h2>
+            <h2 class="ocultar__p">slider</h2>
 
             <div class="slider">
 
@@ -82,28 +82,52 @@
                     <h2>Formulario para agregar un nuevo producto de venta</h2>
                 </div>
                 <div class="new__product__form">
-                    <form action="#" method="post">
-                        <input type="text" id="id-name-product" placeholder="Nombre del producto *" required
-                            autofocus>
+                    <form action="#" method="post" id="formularioProducto">
+                        <input type="text" id="id-name-product" placeholder="Nombre del producto *" autofocus
+                            autocomplete="off" required>
                         <label for="id-name-product" class="name-product"></label>
 
+                        <input type="text" id="id-price-product" placeholder="Precio del producto *" autocomplete="off" required>
+                        <label for="id-price-product" class="price-product" ></label>
+
+                        <input type="text" id="id-stock-product" placeholder="Stock del producto *" autocomplete="off" required>
+                        <label for="id-stock-product" class="stock-product"></label>
+
+                        <input type="text" id="id-marca-product" placeholder="Marca del producto" autocomplete="off">
+                        <label for="id-marca-product" class="marca-product"></label>
+
+                        <select id="id-categoria">
+                            <option class="categoria-product">Reloj</option>
+                            <option class="categoria-product">Camara</option>
+                            <option class="categoria-product">Ups</option>
+                            <option class="categoria-product">Parlante</option>
+                        </select>
+
+
+                        <textarea name="descriptionShort" id="id-descriptionShort-product"
+                            placeholder="Descripción corta de el producto *" autocomplete="off" required></textarea>
+                        <label for="id-descriptionShort-product" class="descriptionShort-product"></label>
+
+                        <textarea name="descriptionLarge" id="id-descriptionLarge-product"
+                            placeholder="Descripción larga de el producto *" autocomplete="off" required></textarea>
+                        <label for="id-descriptionLarge-product" class="descriptionLarge-product"></label>
+
+                        <select name="id-proviene-product" id="id-proviene">
+                            <option class="proviene-product" value="Producto Importado">Producto Importado</option>
+                            <option class="proviene-product" value="Producto Nacional">Producto Nacional</option>
+                        </select>
+
                         <label for="file">Click para agregar imagen del producto *</label>
-                        <input type="file" id="file" name="file" accept=".jpg, .jpeg, .png" required>
+                        <input type="file" id="file" name="file" accept=".jpg, .jpeg, .png">
 
-                        <textarea name="description" id="id-description-product" cols="30" rows="10"
-                            placeholder="Descripción de el producto *" required></textarea>
-                            <label for="id-description-product" class="description-product"></label>
-
-                        <input type="text" id="id-price-product" pattern="[0-9]" placeholder=" Precio del producto *" required>
-                        <label for="id-price-product" class="price-product"></label>
-
-                        <input type="submit" class="button--add" id="btn-validate-product" value="Registrar" onclick="validate()">
+                        <input type="submit" class="button--add" id="btn-validate-product" value="Registrar"
+                        onclick = validate();>
 
                         <input type="reset" class="button--remove" value="Resetear Formulario">
 
 
                         <p>Completar todos los campos es obligatorio</p>
-                </form>
+                    </form>
 
                 </div>
 
@@ -117,6 +141,9 @@
 
     <footer class="footer">
         <span>&copy;2023 Todos los derechos reservados</span>
+
+        <a href="https://www.instagram.com/inversiones_yesbert/" target="_blank"> <img src="./images/instagram.png"
+                alt="Icono Instagram"></a>
     </footer>
 
 

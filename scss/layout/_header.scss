@@ -63,15 +63,177 @@
         }
 
         @keyframes move-title {
-            0% {left: 100%; color: transparent;}
+            0% {
+                left: 100%;
+                color: transparent;
+            }
 
-            20% {left: 0%; font-style: normal;}
+            20% {
+                left: 0%;
+                font-style: normal;
+            }
 
-            50% {transform: rotateY(360deg); font-size: 4em;}
+            50% {
+                transform: rotateY(360deg);
+                font-size: 4em;
+            }
 
-            100% {left: 0%;}
+            100% {
+                left: 0%;
+            }
         }
     }
 
 
+}
+
+
+@media (max-width: 990px) {
+    .header {
+        &__top {
+
+            &__logo {
+                height: 17vh;
+            }
+
+            &__title {
+                border-radius: 40%/50%;
+
+                h1 {
+                    font-size: 2.5em;
+                }
+            }
+
+            @keyframes move-title {
+                0% {
+                    left: 100%;
+                    color: transparent;
+                }
+
+                20% {
+                    left: 0%;
+                    font-style: normal;
+                }
+
+                50% {
+                    transform: rotateY(360deg);
+                    font-size: 3em;
+                }
+
+                100% {
+                    left: 0%;
+                }
+            }
+        }
+
+
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        width: 90%;
+
+        &__top {
+            grid-template-columns: 0.7fr 2fr 0.7fr;
+            padding: 1.5vw;
+
+            &__logo {
+                height: 15vh;
+            }
+
+            &__title {
+
+
+                h1 {
+                    font-size: 1.5em;
+
+                }
+            }
+
+            &__car-shop {
+                .header__car-shop__image {
+                    height: 2.2em;
+                }
+
+                .header__car-shop__counter {
+                    font-size: 0.8em;
+                }
+            }
+
+            @keyframes move-title {
+                0% {
+                    left: 100%;
+                    color: transparent;
+                }
+
+                20% {
+                    left: 0%;
+                    font-style: normal;
+                }
+
+                50% {
+                    transform: rotateY(360deg);
+                    font-size: 1.8em;
+                }
+
+                100% {
+                    left: 0%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .header {
+        width: 90%;
+
+        &__top {
+            grid-template-columns: 0.7fr 2fr 0.7fr;
+            padding: 1vw;
+
+            &__logo {
+                height: 14vh;
+            }
+
+            &__title {
+                h1 {
+                    font-size: 1em;
+
+                }
+            }
+
+            &__car-shop {
+                .header__car-shop__image {
+                    height: 2em;
+                }
+
+                .header__car-shop__counter {
+                    font-size: 0.8em;
+                }
+            }
+
+            @keyframes move-title {
+                0% {
+                    left: 100%;
+                    color: transparent;
+                }
+
+                20% {
+                    left: 0%;
+                    font-style: normal;
+                }
+
+                50% {
+                    transform: rotateY(360deg);
+                    font-size: 1.3em;
+                }
+
+                100% {
+                    left: 0%;
+                }
+            }
+        }
+    }
 }

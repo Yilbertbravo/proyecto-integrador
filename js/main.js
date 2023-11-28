@@ -17,11 +17,6 @@ function hide() {
     buttonShow.onclick = show;
 }
 
-
-
-
-
-
 const paragraphCard2 = document.querySelector(".card__text__short2");
 const buttonShow2 = document.querySelector(".btn--ver--mas2");
 
@@ -166,6 +161,7 @@ function hide10() {
     buttonShow10.onclick = show10;
 }
 
+
 //******* */
 
 
@@ -178,7 +174,7 @@ const buttonRemove = document.querySelector(".button--remove");
 const cardCounter = document.querySelector(".card__counter");
 
 
-function sumar(idContador) {
+function sumar(idContador,) {
     let valorAnterior = document.getElementById(idContador);
 
     let valorAnteriorCarrito = document.getElementById("carrito");
@@ -209,30 +205,41 @@ function restar(idContador) {
 //********Validaciones Ingreso Producto*********** */
 
 const inputName = document.getElementById("id-name-product");
-const inputDescriptionProduct = document.getElementById("id-description-product");
 const inputPriceProduct = document.getElementById("id-price-product");
+const inputStockProduct = document.getElementById("id-stock-product");
+const inputDescriptionShortProduct = document.getElementById("id-descriptionShort-product");
+const inputDescriptionLargeProduct = document.getElementById("id-descriptionLarge-product");
 
 const buttonValidate = document.getElementById("btn-validate-product");
 
-
 const regexName = /^[a-zA-Z\s]{3,}$/;
-const regexDescriptionProduct = /[a-zA-Z\s]{30,}$/;
+const regexDescriptionProduct = /[a-zA-Z\s]{10}$/;
 const regexPriceProduct = /(?:- ?)?\d+(?:,\d+)?/;
 
+const formularioDeProducto = document.getElementById('formularioProducto');
+const inputsProduct = document.querySelectorAll('#formularioProducto input')
+
+const validarFormularioProducto = () => {
+    validateName();
+    validatePriceProduct();
+    validateStockProduct();
+    validateDescriptionProduct();
+}
+
+inputsProduct.forEach((input) => {
+    input.addEventListener('keyup', validarFormularioProducto);
+    input.addEventListener('blur', validarFormularioProducto);
+
+})
+formularioDeProducto.addEventListener('submit', (e) => {
+    e.preventDefault()
+});
 
 function validateName() {
     if (!regexName.test(inputName.value)) {
         inputName.nextElementSibling.innerText = "El nombre ingresado es invalido";
     } else {
         inputName.nextElementSibling.innerText = "";
-    }
-}
-
-function validateDescriptionProduct() {
-    if (!regexDescriptionProduct.test(inputDescriptionProduct.value)) {
-        inputDescriptionProduct.nextElementSibling.innerText = "Debe ingresar alguna descripción, mayor de 30 caracteres";
-    } else {
-        inputDescriptionProduct.nextElementSibling.innerText = "";
     }
 }
 
@@ -244,11 +251,31 @@ function validatePriceProduct() {
     }
 }
 
-function validate() {
-    validateName();
-    validateDescriptionProduct();
-    validatePriceProduct();
+function validateStockProduct() {
+    if (!regexPriceProduct.test(inputStockProduct.value)) {
+        inputStockProduct.nextElementSibling.innerText = "Debe ingresar un Stock valido";
+    } else {
+        inputStockProduct.nextElementSibling.innerText = "";
+    }
 }
+
+
+function validateDescriptionProduct() {
+    if (!regexDescriptionProduct.test(inputDescriptionShortProduct.value)) {
+        inputDescriptionShortProduct.nextElementSibling.innerText = "Debe ingresar alguna descripción";
+    } else {
+        inputDescriptionShortProduct.nextElementSibling.innerText = "";
+    }
+
+    if (!regexDescriptionProduct.test(inputDescriptionLargeProduct.value)) {
+        inputDescriptionLargeProduct.nextElementSibling.innerText = "Debe ingresar alguna descripción, mayor de 30 caracteres";
+    } else {
+        inputDescriptionLargeProduct.nextElementSibling.innerText = "";
+    }
+}
+
+
+
 
 
 
@@ -261,7 +288,26 @@ const buttonValidateConsult = document.getElementById("validate-consult");
 
 const regexNameContact = /^[a-zA-Z\s]{3,}$/;
 const regexEmailContact = /^[a-z0-9._]+@[a-z0-9-]+.(com$|com.[a-z0-9]{2}$)/;
-const regexDescriptionContact = /[a-zA-Z\s]{30,}$/;
+const regexDescriptionContact = /[a-zA-Z\s]{10}$/;
+
+const formularioDeContacto= document.getElementById ('formularioContacto');
+const inputs = document.querySelectorAll('#formularioContacto input')
+
+const validarFormulario = () => {
+    validateNameConsult();
+    validateLastName();
+    validateEmailContact();
+    validateDescriptionContact();
+}
+
+inputs.forEach((input) => {
+    input.addEventListener('keyup', validarFormulario);
+    input.addEventListener('blur', validarFormulario);
+
+})
+formularioDeContacto.addEventListener('submit', (e) => {
+    e.preventDefault()
+});
 
 function validateNameConsult() {
     if (!regexNameContact.test(inputNameContact.value)) {
@@ -282,8 +328,6 @@ function validateLastName() {
 function validateEmailContact() {
     if (!regexEmailContact.test(inputEmailContact.value)) {
         inputEmailContact.nextElementSibling.innerText = "El email ingresado es invalido";
-
-
     } else {
         inputEmailContact.nextElementSibling.innerText = " ";
     }
@@ -295,13 +339,5 @@ function validateDescriptionContact() {
     } else {
         inputDescriptionContact.nextElementSibling.innerText = " ";
     }
-}
-
-
-function validateContact() {
-    validateNameConsult();
-    validateLastName();
-    validateEmailContact();
-    validateDescriptionContact();
 }
 
