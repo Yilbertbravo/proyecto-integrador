@@ -11,11 +11,13 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 import { NavLink } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import ShoppingCartContext from "../context/ShoppingCartContext";
 
 const ProductCard = (props) => {
     const { product, setProducts, itIsOff } = props;
     const { products, removeProduct } = useProducts();
+    const { addProductCart, subtractProductCart } = useContext(ShoppingCartContext);
 
     useEffect(() => {
         if (products?.length > 0) {
@@ -42,15 +44,20 @@ const ProductCard = (props) => {
                 image={product.image}
                 alt={`Fotografía de ${product.name}`}/>
             <CardContent className="product-card__content">
-                <h4>{product.name}</h4>
-                <p><span>Ingredientes:</span> {`${product.description}`}</p>
-                {!product.isPromotion && <p><span>Precio:</span> {`${product.price}`}</p>}
+                <h4 className="product-card--span">{product.name}</h4>
+                <p><span className="product-card--span">Ingredientes:</span> {`${product.description}`}</p>
+
+                {!product.isPromotion && <p><span className="product-card--span">Precio:</span> {`${product.price}`}</p>}
                 {product.isPromotion && <p><span>Precio promocional:</span> {`${product.price - (product.price / 100 * itIsOff )}`}</p>}
             </CardContent>
             <CardActions className="product-card__actions">
-                <Button color="danger"><RemoveIcon/></Button>
-                <span>0</span>
-                <Button><AddIcon/></Button>
+                <Button
+                    color="danger"
+                    onClick={() =>
+                        subtractProductCart(product) }
+                ><RemoveIcon/></Button>
+                <span>{`${ product.amount ?? 0}`}</span>
+                <Button onClick={() => addProductCart(product)}><AddIcon/></Button>
             </CardActions>
         </Card>
     );
@@ -59,6 +66,7 @@ const ProductCard = (props) => {
 ProductCard.propTypes = {
     product: PropTypes.shape({
         id: PropTypes.number.isRequired,
+        amount: PropTypes.number,
         name: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,

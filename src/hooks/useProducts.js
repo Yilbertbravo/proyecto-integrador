@@ -1,9 +1,9 @@
 import useLocalStorage from "./useLocalStorage.js";
 
-import { pizzas } from "../data/data.js";
+import { productos } from "../data/data.js";
 
 const useProducts = () => {
-    const { items, setItem } = useLocalStorage({ products: pizzas });
+    const { items, setItem } = useLocalStorage({ products: productos });
 
     const normalizeValue = (value = "") => {
         return value
@@ -64,8 +64,8 @@ const useProducts = () => {
 
     const removeProduct = (id) => {
         const productsWithoutthisProduct = items.products.filter((item) => item.id != id);
-        console.log(id);
         setItem("products", productsWithoutthisProduct);
+
     };
 
     return {

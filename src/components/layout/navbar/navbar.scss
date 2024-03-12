@@ -16,7 +16,14 @@
         }
     }
 
+    .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+        font-family: cursive;
+        font-size: 1rem;
+
+    }
+
     &__items {
+
         a {
             color: var.$colorFontDarker;
         }
@@ -24,14 +31,17 @@
         .active {
             color: var.$colorFontLight;
             text-shadow: 0.125rem 0.125rem 0.5rem var.$colorBorderDarker;
+            background: var.$colorGradientBackground;
+            border: 1px solid black;
 
         }
     }
 
     &__shopping-cart {
+
         &__icon-badge {
             svg {
-                font-size: var.$fontSizeXL;
+                font-size: var.$fontSizeXXL;
                 fill: var.$colorBackgroundLight;
             }
 

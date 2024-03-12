@@ -14,10 +14,9 @@ const Header = () => {
             <Box className="header__group">
                 <Logo/>
                 <h1 className="header__group__title">
-                    Pizza
-                    <span className="header__group__title header__group__title--color">Store</span>
+                    Inversiones
+                    <span className="header__group__title">Yesbert</span>
                 </h1>
-                <Logo/>
             </Box>
         </Box>
     );

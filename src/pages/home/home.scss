@@ -3,10 +3,14 @@
 .home {
     width: var.$widthContent;
 
+
     &__section {
         padding: 1rem 0;
 
         h3 {
+            color: var.$colorFontLessDark;
+            font-size: 2rem;
+            font-family: "Caveat", cursive;
             margin-bottom: 0.5rem;
         }
 
@@ -14,15 +18,15 @@
             display: flex;
 
             :last-child {
-                margin-left: auto;
+                margin-left: 0.25rem;
             }
-
-            padding: 1rem 0;
         }
+
+
 
         &__cards {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 1vw;
 
             padding: 1rem 0;

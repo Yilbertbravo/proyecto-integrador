@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
     Badge,
@@ -17,10 +17,22 @@ import "./navbar.scss";
 import links from "../../../links/links";
 
 import MenuIcon from "@mui/icons-material/Menu";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";import ShoppingCartContext from "../../context/ShoppingCartContext";
 
 const Navbar = () => {
     const [ openDrawer, setOpenDrawer ] = useState(false);
+    const [ carrito, setCarrito ] = useState();
+    const { shoppingCart } = useContext(ShoppingCartContext);
+
+    useEffect(() => {
+        if (shoppingCart?.length === 0) {
+            setCarrito(0);
+        }
+        else if (shoppingCart?.length > 0) {
+            const reduce = shoppingCart.reduce((acumulador, actual) => acumulador + actual.amount, 0);
+            setCarrito(reduce);
+        }
+    }, [shoppingCart]);
 
     const handleOnClickOpenDrawer = () => {
         setOpenDrawer(true);
@@ -51,18 +63,25 @@ const Navbar = () => {
             </Box>
 
             <Box className="navbar__shopping-cart">
-                <IconButton>
+                <IconButton
+                    component={NavLink}
+                    to={"/shoppingCar"}>
                     <Badge
                         className="navbar__shopping-cart__icon-badge"
-                        badgeContent={10}>
-                        <ShoppingCartOutlinedIcon/>
+                        badgeContent={carrito}
+                        showZero
+                        anchorOrigin={{
+                            vertical: "top",
+                            horizontal: "left",
+                        }}>
+                        <ShoppingBagIcon/>
                     </Badge>
                 </IconButton>
             </Box>
 
             <Drawer
                 open={openDrawer}
-                anchor="left"
+                anchor="top"
                 onClose={handleOnClickCloseDrawer}>
                 <List>
                     {links.map((link, index) => (

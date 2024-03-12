@@ -6,6 +6,7 @@ import Home from "../../../pages/home/Home";
 import About from "../../../pages/about/About";
 import Contact from "../../../pages/contact/Contact";
 import Product from "../../../pages/product/Product";
+import ShoppingCar from "../../../pages/shopping_car/ShoppingCar";
 
 const Main = () => {
     return (
@@ -28,6 +29,9 @@ const Main = () => {
                 <Route
                     path="/product/:id"
                     element={<Product/>}/>
+                <Route
+                    path="/shoppingcar"
+                    element={<ShoppingCar/>}/>
             </Routes>
         </Box>
     );

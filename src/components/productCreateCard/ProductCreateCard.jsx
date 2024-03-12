@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Card, CardActions, CardMedia } from "@mui/material";
+import { Card, CardMedia } from "@mui/material";
 import "./productCreateCard.scss";
 
 import Button from "../button/Button";
@@ -7,18 +7,16 @@ import Button from "../button/Button";
 const ProductCreateCard = () => {
     return (
         <Card className="product-create-card">
-            <CardMedia
-                component="img"
-                className="product-create-card__image"
-                image="/images/home/products/create.png"
-                alt="Imagen de crear producto"/>
-            <CardActions className="product-create-card__actions">
-                <Button
-                    component={NavLink}
-                    to="/product">
-                        Crear Producto
-                </Button>
-            </CardActions>
+            <Button
+                component={NavLink}
+                to="/product"
+                className="product-create-card-button">
+                <CardMedia
+                    component="img"
+                    className="product-create-card__image"
+                    image="/images/home/products/create.png"
+                    alt="Imagen de crear producto"/>
+            </Button>
         </Card>
     );
 };
