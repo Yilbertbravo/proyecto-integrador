@@ -11,7 +11,7 @@
         "preview": "vite preview",
         "netlify": "netlify"
     },
-    "author": "Sergio Regalado Alessi",
+    "author": "Yilbert Bravo",
     "license": "MIT",
     "dependencies": {
         "@emotion/react": "^11.11.3",
