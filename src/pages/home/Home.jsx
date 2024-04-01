@@ -19,6 +19,7 @@ const Home = () => {
 
                 <Box className="home__section__search">
                     <h3>Busca tu producto preferido</h3>
+                    <p>hola soy una prueba</p>
                     <ProductSearch setProducts={setProducts}/>
                 </Box>
 
