@@ -14,7 +14,7 @@ const Product = () => {
             <Box
                 component="section"
                 className="product_section">
-                <h3>Producto</h3>
+                <h3>Agregar un Producto</h3>
 
                 <FormProduct initialValues={productRef.current}/>
             </Box>

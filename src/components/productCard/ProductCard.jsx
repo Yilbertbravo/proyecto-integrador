@@ -79,6 +79,7 @@ ProductCard.propTypes = {
         isPromotion: PropTypes.bool.isRequired,
     }).isRequired,
     removeProduct: PropTypes.func.isRequired,
+
 };
 
 export default ProductCard;

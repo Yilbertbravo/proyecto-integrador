@@ -8,6 +8,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ShoppingCartContext from "../../context/ShoppingCartContext";
 
+//revisar desde aca 
 const ShoppingCar = () => {
     const [ shoppingCar2, setShoppingCar2 ] = useState();
     const { shoppingCart, subtractProductCart, addProductCart, vaciarProductCart, saveProductCart } = useContext(ShoppingCartContext);
