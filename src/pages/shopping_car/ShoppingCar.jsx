@@ -6,8 +6,7 @@ import Button from "../../components/button/Button";
 
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-
-import ShoppingCartContext from "../../components/context/ShoppingCartContext";
+import ShoppingCartContext from "../../context/ShoppingCartContext";
 
 const ShoppingCar = () => {
     const [ shoppingCar2, setShoppingCar2 ] = useState();

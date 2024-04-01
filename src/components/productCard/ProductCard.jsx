@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Box, Card, CardActions, CardContent, CardMedia, IconButton } from "@mui/material";
 import "./productCard.scss";
+
+import ShoppingCartContext from "../../context/ShoppingCartContext";
 
 import Button from "../button/Button";
 
@@ -9,21 +13,12 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import { NavLink } from "react-router-dom";
-import useProducts from "../../hooks/useProducts";
-import { useContext, useEffect } from "react";
-import ShoppingCartContext from "../context/ShoppingCartContext";
+import { IT_IS_OFF } from "../../constants/general.js";
+import { IMAGES_URL } from "../../constants/api.js";
 
 const ProductCard = (props) => {
-    const { product, setProducts, itIsOff } = props;
-    const { products, removeProduct } = useProducts();
-    const { addProductCart, subtractProductCart } = useContext(ShoppingCartContext);
-
-    useEffect(() => {
-        if (products?.length > 0) {
-            setProducts(products);
-        }
-    }, [products]);
+    const { product, removeProduct } = props;
+    const { getCartProduct, addCartProduct, subtractCartProduct } = useContext(ShoppingCartContext);
 
     return (
         <Card className="product-card">
@@ -41,23 +36,30 @@ const ProductCard = (props) => {
             <CardMedia
                 component="img"
                 className="product-card__image"
-                image={product.image}
+                image={`${IMAGES_URL}/${product.imageFileName}`}
                 alt={`Fotografía de ${product.name}`}/>
             <CardContent className="product-card__content">
                 <h4 className="product-card--span">{product.name}</h4>
-                <p><span className="product-card--span">Ingredientes:</span> {`${product.description}`}</p>
+                <p><span className="product-card--span">Descripcion Larga:</span> {`${product.description}`}</p>
+                <p><span className="product-card--span">Marca:</span> {`${product.brand}`}</p>
+                <p><span className="product-card--span">Categoria:</span> {`${product.category}`}</p>
 
                 {!product.isPromotion && <p><span className="product-card--span">Precio:</span> {`${product.price}`}</p>}
-                {product.isPromotion && <p><span>Precio promocional:</span> {`${product.price - (product.price / 100 * itIsOff )}`}</p>}
+                {product.isPromotion && <p><span>Precio promocional:</span> {`${product.price - (product.price / 100 * IT_IS_OFF )}`}</p>}
             </CardContent>
             <CardActions className="product-card__actions">
-                <Button
-                    color="danger"
-                    onClick={() =>
-                        subtractProductCart(product) }
-                ><RemoveIcon/></Button>
-                <span>{`${ product.amount ?? 0}`}</span>
-                <Button onClick={() => addProductCart(product)}><AddIcon/></Button>
+                {product.stock > 0
+                    ? (<>
+                        <Button
+                            color="danger"
+                            onClick={() => subtractCartProduct(product)}>
+                            <RemoveIcon/>
+                        </Button>
+                        <span>{getCartProduct(product.id)?.amount ?? 0}</span>
+                        <Button onClick={() => addCartProduct(product)}><AddIcon/></Button>
+                    </>)
+                    : (<span>SIN STOCK</span>)
+                }
             </CardActions>
         </Card>
     );
@@ -68,18 +70,15 @@ ProductCard.propTypes = {
         id: PropTypes.number.isRequired,
         amount: PropTypes.number,
         name: PropTypes.string.isRequired,
+        brand: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
+        imageFileName: PropTypes.string.isRequired,
         stock: PropTypes.number.isRequired,
         price: PropTypes.number.isRequired,
         isPromotion: PropTypes.bool.isRequired,
-    }),
-    setProducts: PropTypes.func.isRequired,
-    itIsOff: PropTypes.number,
-};
-
-ProductCard.defaultProps = {
-    itIsOff: 0.0,
+    }).isRequired,
+    removeProduct: PropTypes.func.isRequired,
 };
 
 export default ProductCard;

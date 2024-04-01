@@ -8,12 +8,20 @@ import {
     REGEX_PRICE,
     REGEX_STOCK,
     REGEX_IMAGE_PATH,
-} from "../../../constanst/regexPattern.js";
+} from "../../../constants/regexPattern.js";
 
 const validationSchema = yup.object({
     name: yup
         .string("Ingresa el nombre")
         .min(3, "Ingresa un nombre que tenga mas de 3 carateres")
+        .required(MESSAGE_REQUIRED),
+    category: yup
+        .string("Ingresa la categoria")
+        .min(3, "Ingresa la categoria que tenga mas de 3 carateres")
+        .required(MESSAGE_REQUIRED),
+    brand: yup
+        .string("Ingresa la marca del producto")
+        .min(3, "Ingresa la marca que tenga mas de 3 carateres")
         .required(MESSAGE_REQUIRED),
     price: yup
         .string("Ingresa el precio")

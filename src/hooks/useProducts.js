@@ -1,79 +1,89 @@
-import useLocalStorage from "./useLocalStorage.js";
-
-import { productos } from "../data/data.js";
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import ShoppingCartContext from "../context/ShoppingCartContext.jsx";
+import { PRODUCTS_URL } from "../constants/api.js";
 
 const useProducts = () => {
-    const { items, setItem } = useLocalStorage({ products: productos });
+    const { removeCartProduct } = useContext(ShoppingCartContext);
+    const [ response, setResponse ] = useState({});
+    const [ products, setProducts ] = useState([]);
 
-    const normalizeValue = (value = "") => {
-        return value
-            .toLowerCase()
-            .trim()
-            .replace("á", "a")
-            .replace("é", "e")
-            .replace("í", "i")
-            .replace("ó", "o")
-            .replace("ú", "u");
+    const searchProducts = async (params) => {
+        const queryParams = new URLSearchParams(params);
+        const url = queryParams.size > 0 ? `${PRODUCTS_URL}?${queryParams.toString()}` : PRODUCTS_URL;
+
+        return await axios.get(url)
+            .then((res) => {
+                setResponse(res);
+                setProducts(res.data?.data);
+                return res.data;
+            });
     };
 
-    const searchProducts = (text) => {
-        const preparedText = normalizeValue(text);
+    useEffect(() => {
+        searchProducts({});
+    }, []);
 
-        return items.products.filter((pizza) => {
-            const preparedPizza = normalizeValue(pizza.name);
-
-            if (preparedText.length === 0 || preparedPizza.includes(preparedText)) {
-                return pizza;
-            }
-        });
+    const createProduct = async (values) => {
+        return await axios.post(PRODUCTS_URL, values)
+            .then((res) => {
+                setResponse(res);
+                return res.data;
+            });
     };
 
-    const generateId = () => {
-        let maxId = 0;
-
-        items.products.forEach((item) => {
-            if (item.id > maxId) {
-                maxId = item.id;
-            }
-        });
-
-        return maxId + 1;
+    const updateProduct = async (values) => {
+        return await axios.put(`${PRODUCTS_URL}/${values.id}`, values)
+            .then((res) => {
+                setResponse(res);
+                return res.data;
+            });
     };
 
-    const createSchema = (values) => {
-        return {
-            id: values.id ?? generateId(),
-            name: values.name ?? "",
-            description: values.description ?? "",
-            image: values.image ?? "/images/home/products/img0001.jpg",
-            stock: Number(values.stock) ?? 0,
-            price: Number(values.price) ?? 0,
-            isPromotion: values.isPromotion ?? false,
+    // const updateProductStock = (products) => {
+    //     // const productsWithStockToUpdate = items.products;
+
+    //     // products.forEach((product) => {
+    //     //     product.stock = Number(product.stock) - Number(product.amount);
+    //     //     const index = productsWithStockToUpdate.findIndex((item) => item.id === product.id);
+    //     //     productsWithStockToUpdate.splice(index, 1, createSchema(product));
+    //     // });
+
+    //     // setItem("products", productsWithStockToUpdate)};
+
+    const removeProduct = async (id) => {
+        return await axios.delete(`${PRODUCTS_URL}/${id}`)
+            .then((res) => {
+                setResponse(res);
+                removeCartProduct(id);
+                searchProducts({});
+                return res.data;
+            });
+    };
+
+    const uploadProductImage = async (file) => {
+        const options = {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
         };
-    };
 
-    const createProduct = (values) => {
-        setItem("products", [ ...items.products, createSchema(values) ]);
-    };
-
-    const updateProduct = (values) => {
-        const index = items.products.findIndex((item) => item.id === values.id);
-        const products = items.products.toSpliced(index, 1, createSchema(values));
-        setItem("products", products);
-    };
-
-    const removeProduct = (id) => {
-        const productsWithoutthisProduct = items.products.filter((item) => item.id != id);
-        setItem("products", productsWithoutthisProduct);
-
+        return await axios.post(`${PRODUCTS_URL}/upload`, { file }, options)
+            .then((res) => {
+                setResponse(res);
+                return res.data;
+            });
     };
 
     return {
-        products: items.products,
+        products,
+        response,
         searchProducts,
         createProduct,
         updateProduct,
+        //updateProductStock,
         removeProduct,
+        uploadProductImage,
     };
 };
 

@@ -10,7 +10,7 @@ import {
     MESSAGE_EMAIL_INVALID,
     REGEX_TELEPHONE,
     REGEX_EMAIL,
-} from "../../constanst/regexPattern.js";
+} from "../../constants/regexPattern.js";
 
 import InputField from "../../components/form/inputField/InputField";
 import Button from "../../components/button/Button";

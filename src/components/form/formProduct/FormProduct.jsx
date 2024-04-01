@@ -8,8 +8,8 @@ import "./formProduct.scss";
 
 import validationSchema from "./formProduct.validate.js";
 
-import InputField from "../inputField/InputField";
-import Button from "../../button/Button";
+import InputField from "../inputField/InputField.jsx";
+import Button from "../../button/Button.jsx";
 import Switch from "../switch/Switch.jsx";
 import Alert from "../../alert/Alert.jsx";
 
@@ -70,7 +70,29 @@ const FormProduct = (props) => {
             </InputField>
 
             <InputField
-                label="Descripción"
+                label="Marca"
+                name="brand"
+                value={formik.values.brand}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={formik.touched.brand && Boolean(formik.errors.brand)}
+                errorMessage={formik.touched.brand && formik.errors.brand}
+                inputProps={{ maxLength: 25 }}>
+            </InputField>
+
+            <InputField
+                label="Categoría"
+                name="category"
+                value={formik.values.category}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={formik.touched.category && Boolean(formik.errors.category)}
+                errorMessage={formik.touched.category && formik.errors.category}
+                inputProps={{ maxLength: 25 }}>
+            </InputField>
+
+            <InputField
+                label="Descripción larga"
                 name="description"
                 multiline
                 rows={5}

@@ -17,7 +17,8 @@ import "./navbar.scss";
 import links from "../../../links/links";
 
 import MenuIcon from "@mui/icons-material/Menu";
-import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";import ShoppingCartContext from "../../context/ShoppingCartContext";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import ShoppingCartContext from "../../../context/ShoppingCartContext";
 
 const Navbar = () => {
     const [ openDrawer, setOpenDrawer ] = useState(false);

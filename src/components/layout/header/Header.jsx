@@ -14,8 +14,7 @@ const Header = () => {
             <Box className="header__group">
                 <Logo/>
                 <h1 className="header__group__title">
-                    Inversiones
-                    <span className="header__group__title">Yesbert</span>
+                    Inversiones Yesbert
                 </h1>
             </Box>
         </Box>
