@@ -25,7 +25,6 @@ const FormShoppingCart = (props) => {
     const [ messageTitle, setMessageTitle ] = useState();
 
     const { products, updateProductStock } = useProducts();
-    // updateProductStock
 
     const formik = useFormik({
         initialValues: initialValues,
@@ -44,14 +43,10 @@ const FormShoppingCart = (props) => {
                 setMessageTitle("Accepted:");
                 setMessageAlert("Compra satisfactoria");
                 setSeverity("success");
-
                 buyCartProducts();
                 await updateProductStock(products);
-
                 setOpenAlert(true);
-            }
-
-        },
+            }},
     });
 
     const getRandomNumberFront = () => {
