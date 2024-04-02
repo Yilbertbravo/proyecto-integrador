@@ -140,7 +140,7 @@ const Contact = () => {
                     </Box>
                     <Box>
                         <MailIcon/>
-                        <span>inversionesyesbert@yahoo.com</span>
+                        <span>yilbertjosebravo@gmail.com</span>
                     </Box>
                 </Box>
                 <Box className="contact__section__map">

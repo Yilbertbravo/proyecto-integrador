@@ -40,16 +40,13 @@ const useProducts = () => {
             });
     };
 
-    // const updateProductStock = (products) => {
-    //     // const productsWithStockToUpdate = items.products;
-
-    //     // products.forEach((product) => {
-    //     //     product.stock = Number(product.stock) - Number(product.amount);
-    //     //     const index = productsWithStockToUpdate.findIndex((item) => item.id === product.id);
-    //     //     productsWithStockToUpdate.splice(index, 1, createSchema(product));
-    //     // });
-
-    //     // setItem("products", productsWithStockToUpdate)};
+    const updateProductStock = async (values) => {
+        return await axios.put(`${PRODUCTS_URL}/shoppingCar`, values)
+            .then((res) => {
+                setResponse(res);
+                return res.data;
+            });
+    };
 
     const removeProduct = async (id) => {
         return await axios.delete(`${PRODUCTS_URL}/${id}`)
@@ -81,7 +78,7 @@ const useProducts = () => {
         searchProducts,
         createProduct,
         updateProduct,
-        //updateProductStock,
+        updateProductStock,
         removeProduct,
         uploadProductImage,
     };

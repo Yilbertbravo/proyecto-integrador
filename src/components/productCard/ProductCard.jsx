@@ -41,8 +41,6 @@ const ProductCard = (props) => {
             <CardContent className="product-card__content">
                 <h4 className="product-card--span">{product.name}</h4>
                 <p><span className="product-card--span">Descripcion Larga:</span> {`${product.description}`}</p>
-                <p><span className="product-card--span">Marca:</span> {`${product.brand}`}</p>
-                <p><span className="product-card--span">Categoria:</span> {`${product.category}`}</p>
 
                 {!product.isPromotion && <p><span className="product-card--span">Precio:</span> {`${product.price}`}</p>}
                 {product.isPromotion && <p><span>Precio promocional:</span> {`${product.price - (product.price / 100 * IT_IS_OFF )}`}</p>}
@@ -70,8 +68,6 @@ ProductCard.propTypes = {
         id: PropTypes.number.isRequired,
         amount: PropTypes.number,
         name: PropTypes.string.isRequired,
-        brand: PropTypes.string.isRequired,
-        category: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
         imageFileName: PropTypes.string.isRequired,
         stock: PropTypes.number.isRequired,

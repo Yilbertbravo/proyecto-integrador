@@ -13,6 +13,7 @@
     .shoppingCar__table {
         width: 100%;
         border-collapse: collapse;
+        margin-bottom: 2rem;
 
         th {
             font-size: 1.7rem;
@@ -37,12 +38,63 @@
 
         td button {
             margin: 0.5rem;
+
+            svg {
+                height: 1rem;
+            }
         }
 
     }
+
+    .form-product-shoppingcart {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+
+
+    }
+
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
+    .shoppingCar {
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        .shoppingCar__table {
+
+            th {
+                font-size: 1.5rem;
+                color: var.$colorBackgroundBlack;
+
+            }
+
+            td {
+                font-size: 1.1rem;
+                border-top: 1px solid black;
+
+            }
+
+            td button {
+                svg {
+                    height: 0.8rem;
+                }
+            }
+
+        }
+
+        .form-product-shoppingcart {
+            width: 80%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
     .shoppingCar {
 
         h2 {
@@ -64,7 +116,9 @@
             }
 
             td button {
-                margin: 0.5rem;
+                svg {
+                    height: 0.5rem;
+                }
             }
 
         }
