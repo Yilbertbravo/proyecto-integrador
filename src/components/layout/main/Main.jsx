@@ -30,7 +30,7 @@ const Main = () => {
                     path="/product/:id"
                     element={<Product/>}/>
                 <Route
-                    path="/shoppingcar"
+                    path="/shopping-cart"
                     element={<ShoppingCar/>}/>
             </Routes>
         </Box>

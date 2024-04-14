@@ -4,6 +4,8 @@ import * as yup from "yup";
 import { Box } from "@mui/material";
 import "./contact.scss";
 
+import axios from "axios";
+
 import {
     MESSAGE_REQUIRED,
     MESSAGE_TELEPHONE_INVALID,
@@ -19,9 +21,16 @@ import PlaceIcon from "@mui/icons-material/Place";
 import PhoneIcon from "@mui/icons-material/Phone";
 import MailIcon from "@mui/icons-material/Mail";
 import Alert from "../../components/alert/Alert.jsx";
+import { CONSULTS_URL } from "../../constants/api.js";
 
 const Contact = () => {
     const [ openAlert, setOpenAlert ] = useState(false);
+
+    const sendMail = async (values) => {
+        await axios.post(`${CONSULTS_URL}/send-mail`, values).then((res) => {
+            return res.data;
+        });
+    };
 
     const validationSchema = yup.object({
         fullname: yup
@@ -50,8 +59,8 @@ const Contact = () => {
             consult: "",
         },
         validationSchema: validationSchema,
-        onSubmit: (values, { resetForm }) => {
-            console.log(values);
+        onSubmit: async (values, { resetForm }) => {
+            await sendMail(values);
             setOpenAlert(true);
             resetForm();
         },
@@ -120,7 +129,7 @@ const Contact = () => {
                     <Alert
                         openAlert={openAlert}
                         setOpenAlert={setOpenAlert}
-                        message="Tu consulta se ha enviado correctamente"/>
+                        message="Se ha enviado tu consulta correctamente"/>
                 </Box>
 
             </Box>

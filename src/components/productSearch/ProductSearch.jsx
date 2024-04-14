@@ -41,7 +41,6 @@ const ProductSearch = (props) => {
         setSearchType(isNaN(event.target.value) ? "string" : "number" );
 
         if (event.target.value.trim().length === 0) {
-            console.log("cambio");
             setSearchProductParams({});
         }
     };

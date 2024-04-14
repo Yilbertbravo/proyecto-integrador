@@ -137,6 +137,7 @@ FormProduct.propTypes = {
         description: PropTypes.string.isRequired,
         imageFileName: PropTypes.string.isRequired,
         isPromotion: PropTypes.bool.isRequired,
+        file: PropTypes.array,
     }).isRequired,
 };
 

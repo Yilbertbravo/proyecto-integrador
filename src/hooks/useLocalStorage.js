@@ -1,9 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-// En React, el useState es asíncrono y se re-renderiza solo cuando se cambia
-// la referencia de un objeto. Por tal motivo, se emplea está técnica de clonado
-// en cada situación de cambio: setLocalStorageItems({ ...itemsRef }).
-
 const useLocalStorage = (initialValue = {}) => {
     const itemsRef = useRef({});
     const [ localStorageItems, setLocalStorageItems ] = useState(itemsRef);

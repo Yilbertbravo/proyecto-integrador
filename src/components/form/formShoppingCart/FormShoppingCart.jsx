@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useFormik } from "formik";
 import { Box } from "@mui/material";
+
 import "./formShoppingCart.scss";
 
 import validationSchema from "./formShoppingCart.js";
@@ -17,34 +18,32 @@ import ShoppingCartContext from "../../../context/ShoppingCartContext.jsx";
 const FormShoppingCart = (props) => {
     const { initialValues } = props;
 
-    const { shoppingCart, removeAllCartProducts, buyCartProducts } = useContext(ShoppingCartContext);
+    const { shoppingCart, removeAllCartProducts, buyCartProducts, calculateTotal } = useContext(ShoppingCartContext);
 
     const [ openAlert, setOpenAlert ] = useState(false);
     const [ severity, setSeverity ] = useState();
     const [ messageAlert, setMessageAlert ] = useState();
     const [ messageTitle, setMessageTitle ] = useState();
 
-    const { products, updateProductStock } = useProducts();
+    const { updateProductStock } = useProducts();
 
     const formik = useFormik({
         initialValues: initialValues,
         validationSchema: validationSchema,
-        onSubmit: async (values) => {
-            if (shoppingCart.length === 0) {
+        onSubmit: async (values, { resetForm }) => {
+            if (shoppingCart?.length === 0) {
                 setMessageTitle("Error:");
                 setMessageAlert("No hay productos en el carro");
                 setSeverity("error");
                 setOpenAlert(true);
-            }
-            if (shoppingCart.length > 0) {
-                console.log("Comprador:", values);
-                console.log("Productos:", products);
-                console.log("Productos del carrito:", shoppingCart);
+            }else {
                 setMessageTitle("Accepted:");
                 setMessageAlert("Compra satisfactoria");
                 setSeverity("success");
-                buyCartProducts();
-                await updateProductStock(products);
+
+                await buyCartProducts({ ...values, total: calculateTotal() });
+                await updateProductStock();
+                resetForm();
                 setOpenAlert(true);
             }},
     });
@@ -73,10 +72,20 @@ const FormShoppingCart = (props) => {
             </InputField>
 
             <InputField
+                label="E-mail"
+                name="email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                errorMessage={formik.touched.email && formik.errors.email}
+                inputProps={{ maxLength: 50 }}/>
+
+            <InputField
                 label="Numero de Orden"
                 name="factura"
                 className="margin--input"
-                value={Number(formik.values.factura=getRandomNumberFront())}
+                value={Number(getRandomNumberFront())}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
             >

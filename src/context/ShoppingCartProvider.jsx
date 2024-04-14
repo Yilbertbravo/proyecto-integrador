@@ -2,10 +2,12 @@ import PropTypes from "prop-types";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 import ShoppingCartContext from "./ShoppingCartContext";
+import useShoppingCarts from "../hooks/useShoppingCarts";
 
 const ShoppingCartProvider = (props) => {
     const { children } = props;
     const { items, setItem } = useLocalStorage({ shoppingCart: [] });
+    const { createShoppingCart } = useShoppingCarts();
 
     const setCartProduct = (product, amount) => {
         const shoppingCartWithoutThisProduct = items.shoppingCart?.filter((item) => item.id != product.id);
@@ -52,7 +54,8 @@ const ShoppingCartProvider = (props) => {
         setItem("shoppingCart", []);
     };
 
-    const buyCartProducts = () => {
+    const buyCartProducts = async (values) => {
+        await createShoppingCart(values);
         setItem("shoppingCart", []);
     };
 

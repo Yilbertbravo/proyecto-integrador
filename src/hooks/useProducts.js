@@ -40,12 +40,10 @@ const useProducts = () => {
             });
     };
 
-    const updateProductStock = async (values) => {
-        return await axios.put(`${PRODUCTS_URL}/shoppingCar`, values)
-            .then((res) => {
-                setResponse(res);
-                return res.data;
-            });
+    const updateProductStock = async (products) => {
+        return await axios.patch(`${PRODUCTS_URL}/decrease-stock`, { products }).then((res) => {
+            return res.data;
+        });
     };
 
     const removeProduct = async (id) => {
