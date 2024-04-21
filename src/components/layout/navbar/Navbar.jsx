@@ -66,7 +66,7 @@ const Navbar = () => {
             <Box className="navbar__shopping-cart">
                 <IconButton
                     component={NavLink}
-                    to={"/shoppingCar"}>
+                    to={"/shopping-cart"}>
                     <Badge
                         className="navbar__shopping-cart__icon-badge"
                         badgeContent={carrito}

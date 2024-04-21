@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import useProducts from "../../../hooks/useProducts.js";
 import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
 import { useFormik } from "formik";
 import { Box } from "@mui/material";
 
@@ -15,35 +14,36 @@ import Button from "../../button/Button.jsx";
 import Alert from "../../alert/Alert.jsx";
 import ShoppingCartContext from "../../../context/ShoppingCartContext.jsx";
 
-const FormShoppingCart = (props) => {
-    const { initialValues } = props;
+const FormShoppingCart = () => {
 
     const { shoppingCart, removeAllCartProducts, buyCartProducts, calculateTotal } = useContext(ShoppingCartContext);
 
     const [ openAlert, setOpenAlert ] = useState(false);
-    const [ severity, setSeverity ] = useState();
-    const [ messageAlert, setMessageAlert ] = useState();
-    const [ messageTitle, setMessageTitle ] = useState();
+    const [ messageTitle, setMessageTitle ] = useState([]);
 
-    const { updateProductStock } = useProducts();
+    const { updateProductStock, products } = useProducts();
 
     const formik = useFormik({
-        initialValues: initialValues,
+        initialValues: {
+            fullname: "",
+            email: "",
+            factura:null },
         validationSchema: validationSchema,
-        onSubmit: async (values, { resetForm }) => {
-            if (shoppingCart?.length === 0) {
-                setMessageTitle("Error:");
-                setMessageAlert("No hay productos en el carro");
-                setSeverity("error");
+        onSubmit: async (values) => {
+            console.log("prueba");
+            if (shoppingCart.length === 0) {
+                setMessageTitle([ "Error:", "No hay productos en el carro", "error" ]);
+
                 setOpenAlert(true);
-            }else {
-                setMessageTitle("Accepted:");
-                setMessageAlert("Compra satisfactoria");
-                setSeverity("success");
+            }
+            if (shoppingCart.length > 0) {
+                console.log("Comprador:", values);
+                console.log("Productos:", products);
+                console.log("Productos del carrito:", shoppingCart);
+                setMessageTitle([ "Accepted:", "Compra satisfactoria", "success" ]);
 
                 await buyCartProducts({ ...values, total: calculateTotal() });
                 await updateProductStock();
-                resetForm();
                 setOpenAlert(true);
             }},
     });
@@ -62,12 +62,12 @@ const FormShoppingCart = (props) => {
 
             <InputField
                 label="Nombre y Apellido"
-                name="name"
-                value={formik.values.name}
+                name="fullname"
+                value={formik.values.fullname}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                error={formik.touched.name && Boolean(formik.errors.name)}
-                errorMessage={formik.touched.name && formik.errors.name}
+                error={formik.touched.fullname && Boolean(formik.errors.fullname)}
+                errorMessage={formik.touched.fullname && formik.errors.fullname}
                 inputProps={{ maxLength: 25 }}>
             </InputField>
 
@@ -85,13 +85,13 @@ const FormShoppingCart = (props) => {
                 label="Numero de Orden"
                 name="factura"
                 className="margin--input"
-                value={Number(getRandomNumberFront())}
+                value={Number(formik.values.factura=getRandomNumberFront())}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-            >
-            </InputField>
+            />
 
-            <Button type="submit">Comprar</Button>
+            <Button
+                type="submit">Comprar</Button>
 
             <Button
                 component={NavLink}
@@ -102,32 +102,15 @@ const FormShoppingCart = (props) => {
             >Vaciar carrito</Button>
             <Alert
                 variant="filled"
-                severity={severity}
+                severity={messageTitle[2]}
                 openAlert={openAlert}
                 setOpenAlert={setOpenAlert}
-                message={messageAlert}
-                messageTitle={messageTitle}
-                navigateUrl="/"></Alert>
+                message={messageTitle[1]}
+                messageTitle={messageTitle[0]}
+                navigateUrl="/"/>
 
         </Box>
     );
-};
-
-FormShoppingCart.propTypes = {
-    initialValues: PropTypes.shape({
-        id: PropTypes.number,
-        name: PropTypes.string.isRequired,
-        factura: PropTypes.number,
-
-    }).isRequired,
-};
-
-FormShoppingCart.defaultProps = {
-    initialValues: {
-        name: "",
-        factura:null,
-
-    },
 };
 
 export default FormShoppingCart;
