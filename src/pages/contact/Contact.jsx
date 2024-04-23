@@ -27,6 +27,7 @@ const Contact = () => {
     const [ openAlert, setOpenAlert ] = useState(false);
 
     const sendMail = async (values) => {
+        console.log("hola email");
         await axios.post(`${CONSULTS_URL}/send-mail`, values).then((res) => {
             return res.data;
         });
